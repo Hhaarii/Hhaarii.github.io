@@ -587,17 +587,17 @@
 
         <div id="projectGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px;">
 
-          <!-- Project cards ─ consistent markup -->
+          <!-- ── ROBOTICS 1: Autonomous Mapping UGV ── -->
           <div class="card proj reveal robotics" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
             <div>
               <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#38bdf8;margin:0 0 8px;">ROS 2 · Nav2 · SLAM</p>
               <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">Autonomous Mapping UGV</h3>
               <p style="font-size:11px;color:#475569;margin:0 0 12px;">Lead Robotics & Embedded Developer</p>
-              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Full-stack autonomous rover with Cartographer SLAM for 2D/3D mapping, obstacle avoidance, and bidirectional UART telemetry to an STM32 motor controller.</p>
+              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Full-stack autonomous rover with Cartographer SLAM for real-time 2D/3D spatial mapping, obstacle avoidance, and bidirectional UART telemetry to an STM32 motor controller.</p>
             </div>
             <div style="margin-top:auto;">
               <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
-                <span class="chip">ROS 2</span><span class="chip">Nav2</span><span class="chip">STM32</span><span class="chip">RPi 4</span>
+                <span class="chip">ROS 2</span><span class="chip">Nav2</span><span class="chip">SLAM</span><span class="chip">STM32</span><span class="chip">RPi 4</span>
               </div>
               <a href="https://github.com/Hhaarii" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#38bdf8;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">
                 <i data-lucide="github" style="width:13px;height:13px;"></i> View on GitHub →
@@ -605,16 +605,17 @@
             </div>
           </div>
 
-          <div class="card proj reveal hardware" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
+          <!-- ── ROBOTICS 2: Skid-Steer Agricultural Rover + 4-DOF Arm ── -->
+          <div class="card proj reveal robotics" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
             <div>
-              <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#fbbf24;margin:0 0 8px;">STM32 · 915 MHz RF · KiCad</p>
-              <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">RF Warning System & Ag Rover</h3>
-              <p style="font-size:11px;color:#475569;margin:0 0 12px;">Hardware & Firmware Engineer</p>
-              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Coast Guard alert link over 915 MHz RFM69HCW with zero-packet-loss; autonomous agricultural rover with 4-DOF arm, GPS, and soil sensors.</p>
+              <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#38bdf8;margin:0 0 8px;">Skid-Steer · Vision · 4-DOF Arm</p>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">Agricultural Rover with Robotic Arm</h3>
+              <p style="font-size:11px;color:#475569;margin:0 0 12px;">Robotics & Mechatronics Engineer</p>
+              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Designed and built a skid-steer autonomous agricultural rover with a vision-guided 4-DOF robotic arm for crop manipulation. Integrated camera-based targeting using OpenCV for precision end-effector positioning, paired with GPS telemetry and soil analytics sensors.</p>
             </div>
             <div style="margin-top:auto;">
               <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
-                <span class="chip">STM32F103</span><span class="chip">RFM69HCW</span><span class="chip">GPS RTK</span>
+                <span class="chip">OpenCV</span><span class="chip">4-DOF Arm</span><span class="chip">GPS RTK</span><span class="chip">SolidWorks</span><span class="chip">STM32</span>
               </div>
               <a href="https://github.com/Hhaarii" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#38bdf8;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">
                 <i data-lucide="github" style="width:13px;height:13px;"></i> View on GitHub →
@@ -622,46 +623,13 @@
             </div>
           </div>
 
-          <div class="card proj reveal ai" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
-            <div>
-              <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#a78bfa;margin:0 0 8px;">YOLOv8 · OpenCV · LLM</p>
-              <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">AI Vision Systems & Support Bot</h3>
-              <p style="font-size:11px;color:#475569;margin:0 0 12px;">AI / Software Developer</p>
-              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Enterprise knowledge bot with human escalation; computer vision for plant disease detection and ROS-integrated target identification and alerting.</p>
-            </div>
-            <div style="margin-top:auto;">
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
-                <span class="chip">YOLOv8</span><span class="chip">OpenCV</span><span class="chip">Groq / Ollama</span><span class="chip">Flask</span>
-              </div>
-              <a href="https://github.com/Hhaarii" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#38bdf8;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">
-                <i data-lucide="github" style="width:13px;height:13px;"></i> View on GitHub →
-              </a>
-            </div>
-          </div>
-
-          <div class="card proj reveal iot" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
-            <div>
-              <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#34d399;margin:0 0 8px;">MQTT · Tailscale · ESP32</p>
-              <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">MQTT Multi-Device Control</h3>
-              <p style="font-size:11px;color:#475569;margin:0 0 12px;">IoT Developer</p>
-              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Secure orchestration via Mosquitto broker over Tailscale mesh VPN — low-latency control and screen mirroring across mobile and desktop.</p>
-            </div>
-            <div style="margin-top:auto;">
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
-                <span class="chip">MQTT</span><span class="chip">Mosquitto</span><span class="chip">Tailscale</span><span class="chip">ESP32</span>
-              </div>
-              <a href="https://github.com/Hhaarii" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#38bdf8;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">
-                <i data-lucide="github" style="width:13px;height:13px;"></i> View on GitHub →
-              </a>
-            </div>
-          </div>
-
+          <!-- ── ROBOTICS 3: Autonomous UAV ── -->
           <div class="card proj reveal robotics" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
             <div>
               <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#60a5fa;margin:0 0 8px;">ArduPilot · Mission Planner</p>
               <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">Autonomous UAV Platform</h3>
               <p style="font-size:11px;color:#475569;margin:0 0 12px;">Avionics & Flight Testing</p>
-              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Flight stack configuration, telemetry calibration, and waypoint mission planning via ArduPilot for surveillance and geospatial mapping operations.</p>
+              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Flight stack configuration, telemetry calibration, and autonomous waypoint mission planning via ArduPilot for surveillance and geospatial mapping operations.</p>
             </div>
             <div style="margin-top:auto;">
               <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
@@ -673,12 +641,103 @@
             </div>
           </div>
 
+          <!-- ── HARDWARE: RF Warning System ── -->
+          <div class="card proj reveal hardware" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#fbbf24;margin:0 0 8px;">STM32 · 915 MHz RF · KiCad</p>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">Coast Guard RF Warning System</h3>
+              <p style="font-size:11px;color:#475569;margin:0 0 12px;">Hardware & Firmware Engineer</p>
+              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Mission-critical alert link pairing STM32F103 MCUs over 915 MHz RFM69HCW transceivers with zero-packet-loss, instant LED and haptic vibration feedback for remote safety alerting.</p>
+            </div>
+            <div style="margin-top:auto;">
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                <span class="chip">STM32F103</span><span class="chip">RFM69HCW</span><span class="chip">KiCad PCB</span><span class="chip">C Firmware</span>
+              </div>
+              <a href="https://github.com/Hhaarii" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#38bdf8;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">
+                <i data-lucide="github" style="width:13px;height:13px;"></i> View on GitHub →
+              </a>
+            </div>
+          </div>
+
+          <!-- ── AI 1: Plant Disease Detection ── -->
+          <div class="card proj reveal ai" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#a78bfa;margin:0 0 8px;">YOLOv8 · OpenCV · Edge Inference</p>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">Plant Disease Detection System</h3>
+              <p style="font-size:11px;color:#475569;margin:0 0 12px;">Computer Vision Engineer</p>
+              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Real-time plant disease classification system using YOLOv8 and OpenCV, trained on leaf pathology datasets. Deployed as an edge inference pipeline for field-ready agricultural monitoring with bounding-box severity annotation and confidence thresholding.</p>
+            </div>
+            <div style="margin-top:auto;">
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                <span class="chip">YOLOv8</span><span class="chip">OpenCV</span><span class="chip">Python</span><span class="chip">Edge AI</span>
+              </div>
+              <a href="https://github.com/Hhaarii" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#38bdf8;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">
+                <i data-lucide="github" style="width:13px;height:13px;"></i> View on GitHub →
+              </a>
+            </div>
+          </div>
+
+          <!-- ── AI 2: Linux Facial Recognition / Face Unlock ── -->
+          <div class="card proj reveal ai" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#a78bfa;margin:0 0 8px;">InsightFace · Linux PAM · Python</p>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">Linux Facial Recognition Face Unlock</h3>
+              <p style="font-size:11px;color:#475569;margin:0 0 12px;">Systems & AI Developer</p>
+              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Built a Linux system-level face unlock mechanism integrating InsightFace for high-accuracy facial recognition with liveness detection. Hooked into Linux PAM (Pluggable Authentication Modules) for seamless biometric login as a secure alternative to password-based authentication.</p>
+            </div>
+            <div style="margin-top:auto;">
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                <span class="chip">InsightFace</span><span class="chip">Linux PAM</span><span class="chip">OpenCV</span><span class="chip">Python</span><span class="chip">Liveness</span>
+              </div>
+              <a href="https://github.com/Hhaarii" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#38bdf8;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">
+                <i data-lucide="github" style="width:13px;height:13px;"></i> View on GitHub →
+              </a>
+            </div>
+          </div>
+
+          <!-- ── AI 3: Enterprise Support Bot ── -->
+          <div class="card proj reveal ai" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#a78bfa;margin:0 0 8px;">LLM · Groq · RAG · Flask</p>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">Enterprise AI Customer Support Bot</h3>
+              <p style="font-size:11px;color:#475569;margin:0 0 12px;">AI / Software Developer · SMEC Automation</p>
+              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Built an enterprise LLM support bot grounded in proprietary engineering knowledge bases (RAG pipeline), with structured human-escalation guardrails and a Flask web UI deployed for SMEC Automation's field support team.</p>
+            </div>
+            <div style="margin-top:auto;">
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                <span class="chip">Groq / Ollama</span><span class="chip">RAG</span><span class="chip">Flask</span><span class="chip">Python</span>
+              </div>
+              <a href="https://github.com/Hhaarii" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#38bdf8;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">
+                <i data-lucide="github" style="width:13px;height:13px;"></i> View on GitHub →
+              </a>
+            </div>
+          </div>
+
+          <!-- ── IoT: MQTT Multi-Device ── -->
+          <div class="card proj reveal iot" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#34d399;margin:0 0 8px;">MQTT · Tailscale · ESP32</p>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">MQTT Multi-Device Control</h3>
+              <p style="font-size:11px;color:#475569;margin:0 0 12px;">IoT Developer</p>
+              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">Secure device orchestration via Mosquitto broker over Tailscale mesh VPN — low-latency remote control and screen mirroring across mobile and desktop endpoints.</p>
+            </div>
+            <div style="margin-top:auto;">
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                <span class="chip">MQTT</span><span class="chip">Mosquitto</span><span class="chip">Tailscale</span><span class="chip">ESP32</span>
+              </div>
+              <a href="https://github.com/Hhaarii" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#38bdf8;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#7dd3fc'" onmouseout="this.style.color='#38bdf8'">
+                <i data-lucide="github" style="width:13px;height:13px;"></i> View on GitHub →
+              </a>
+            </div>
+          </div>
+
+          <!-- ── IoT: Automated Application Pipeline ── -->
           <div class="card proj reveal iot" style="padding:24px;display:flex;flex-direction:column;gap:14px;">
             <div>
               <p style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#2dd4bf;margin:0 0 8px;">Python · SQLite · Flask</p>
               <h3 style="font-size:16px;font-weight:700;color:#fff;margin:0 0 4px;">Automated Application Pipeline</h3>
               <p style="font-size:11px;color:#475569;margin:0 0 12px;">System Developer</p>
-              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">CLI & web dashboard for automated career tracking — JD matching, tailored HTML/PDF resume compilation, SQLite logging, and SMTP dispatch.</p>
+              <p style="font-size:13px;color:#94a3b8;line-height:1.65;margin:0;">CLI & web dashboard for automated career tracking — JD matching, tailored HTML/PDF resume compilation, SQLite logging, and SMTP dispatch automation.</p>
             </div>
             <div style="margin-top:auto;">
               <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
