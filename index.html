@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hariprasad Anand | Robotics & Embedded Systems Engineer</title>
-  <meta name="description" content="Portfolio of Hariprasad Anand - Robotics & Automation Engineer specializing in ROS 2, STM32 firmware, custom KiCad PCB design, and autonomous vehicles." />
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f172a'/><text x='50%' y='62%' font-family='sans-serif' font-size='55' font-weight='900' fill='%2306b6d4' text-anchor='middle'>H</text></svg>" />
+  <title>Hariprasad Anand — Robotics & Embedded Systems Engineer</title>
+  <meta name="description" content="Professional portfolio of Hariprasad Anand — Robotics & Automation Engineer specialising in ROS 2, STM32 firmware, KiCad PCB design, and autonomous systems." />
 
-  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230f172a'/><text x='50%' y='64%' font-family='Inter,sans-serif' font-size='46' font-weight='700' fill='%2338bdf8' text-anchor='middle'>HA</text></svg>" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -26,36 +22,12 @@
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            cyber: {
-              50: '#ecfeff',
-              100: '#cffafe',
-              200: '#a5f3fc',
-              300: '#67e8f9',
-              400: '#22d3ee',
-              500: '#06b6d4',
-              600: '#0891b2',
-              700: '#0e7490',
-              800: '#155e75',
-              900: '#164e63',
-              glow: '#00f2fe',
-            },
-            darkbg: '#070b13',
-            darkcard: '#0d1322',
-            darkborder: '#1b2438'
-          },
-          animation: {
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'float': 'float 6s ease-in-out infinite',
-            'scanline': 'scanline 8s linear infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-8px)' },
-            },
-            scanline: {
-              '0%': { transform: 'translateY(-100%)' },
-              '100%': { transform: 'translateY(1000%)' }
+            sky: { accent: '#38bdf8', soft: '#0ea5e9', dark: '#0284c7' },
+            surface: {
+              page:    '#0a0f1e',
+              section: '#0d1424',
+              card:    '#111d36',
+              border:  '#1c2e50',
             }
           }
         }
@@ -63,380 +35,221 @@
     }
   </script>
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Google Model Viewer for 3D glTF/GLB -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
   <style>
-    /* Cyber grid overlay */
-    .bg-cyber-grid {
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
+    body { background-color: #0a0f1e; }
+
+    /* Subtle blue radial glow — set once, no animation */
+    .page-glow {
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(56,189,248,.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(14,165,233,.06) 0%, transparent 55%);
     }
-    .neon-border {
-      border: 1px solid rgba(34, 211, 238, 0.25);
-      box-shadow: 0 0 15px -3px rgba(34, 211, 238, 0.15);
-    }
-    .neon-border:hover {
-      border-color: rgba(34, 211, 238, 0.6);
-      box-shadow: 0 0 25px -2px rgba(34, 211, 238, 0.35);
-    }
+
+    /* Smooth section divider */
+    .section-alt { background-color: #0d1424; }
+
+    /* Card hover */
+    .card { transition: border-color .2s, background-color .2s; }
+    .card:hover { border-color: rgba(56,189,248,.35); background-color: #132040; }
+
+    /* Timeline line */
+    .timeline { border-left: 2px solid #1c2e50; }
+
     model-viewer {
-      width: 100%;
-      height: 480px;
-      --poster-color: transparent;
+      width: 100%; height: 420px;
       outline: none;
+      --poster-color: transparent;
     }
-    /* Custom scrollbars */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #070b13;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1b2438;
+
+    ::-webkit-scrollbar { width: 7px; }
+    ::-webkit-scrollbar-track { background: #0a0f1e; }
+    ::-webkit-scrollbar-thumb { background: #1c2e50; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+
+    /* Tag chip */
+    .chip {
+      display: inline-block;
+      padding: 2px 9px;
       border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #0891b2;
+      background: #0a0f1e;
+      border: 1px solid #1c2e50;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
     }
   </style>
 </head>
-<body class="bg-darkbg text-slate-200 font-sans selection:bg-cyan-500 selection:text-black min-h-screen relative overflow-x-hidden">
 
-  <!-- Ambient background glow elements -->
-  <div class="fixed inset-0 bg-cyber-grid pointer-events-none z-0"></div>
-  <div class="fixed -top-40 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
-  <div class="fixed top-1/2 -right-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+<body class="text-slate-300 font-sans antialiased page-glow">
 
-  <!-- Navigation Bar -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-darkbg/85 border-b border-darkborder transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      
-      <!-- Brand Logo -->
+  <!-- ─── NAV ──────────────────────────────────────────────────────────── -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#0a0f1e]/85 border-b border-surface-border">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
       <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center font-mono font-bold text-cyan-400 group-hover:scale-105 transition-transform group-hover:border-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.2)]">
+        <div class="w-9 h-9 rounded-lg bg-surface-card border border-surface-border grid place-items-center text-sm font-bold text-sky-400 group-hover:border-sky-500 transition-colors">
           HA
         </div>
         <div>
-          <span class="font-bold text-slate-100 tracking-tight group-hover:text-cyan-400 transition-colors">Hariprasad Anand</span>
-          <span class="block text-xs font-mono text-cyan-400/80">ROBOTICS // EMBEDDED</span>
+          <p class="text-sm font-semibold text-white leading-none">Hariprasad Anand</p>
+          <p class="text-[11px] text-slate-400 leading-none mt-0.5">Robotics & Embedded Systems</p>
         </div>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-        <a href="#3d-ugv" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
-          <i data-lucide="box" class="w-4 h-4 text-cyan-400"></i> 3D Hardware
-        </a>
-        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
-        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
-        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
-        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-400">
+        <a href="#about"      class="hover:text-white transition-colors">About</a>
+        <a href="#ugv"        class="hover:text-white transition-colors">3D Hardware</a>
+        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+        <a href="#projects"   class="hover:text-white transition-colors">Projects</a>
+        <a href="#skills"     class="hover:text-white transition-colors">Skills</a>
+        <a href="#contact"    class="hover:text-white transition-colors">Contact</a>
       </nav>
 
-      <!-- Right Action Pill -->
-      <div class="hidden sm:flex items-center gap-3">
-        <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-400">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>Ready for Roles</span>
-        </div>
-        <a href="assets/docs/Hariprasad_Anand_Resume.pdf" download class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-semibold text-xs tracking-wide hover:bg-cyan-400 transition shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+      <div class="flex items-center gap-3">
+        <span class="hidden sm:flex items-center gap-1.5 text-[11px] font-medium text-emerald-300 bg-emerald-950/50 border border-emerald-500/25 px-3 py-1 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Open to Roles
+        </span>
+        <a href="assets/docs/Hariprasad_Anand_Resume.pdf" download
+           class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-white text-xs font-semibold transition shadow">
           <i data-lucide="download" class="w-3.5 h-3.5"></i> Resume
         </a>
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-surface-card text-slate-400 hover:text-white transition">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
       </div>
-
-      <!-- Mobile Menu Toggle Button -->
-      <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
     </div>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden md:hidden border-b border-darkborder bg-darkcard/95 px-4 pt-3 pb-5 space-y-3 font-medium text-sm">
-      <a href="#about" class="block py-1 hover:text-cyan-400">About</a>
-      <a href="#3d-ugv" class="block py-1 hover:text-cyan-400">3D Hardware</a>
-      <a href="#projects" class="block py-1 hover:text-cyan-400">Projects</a>
-      <a href="#experience" class="block py-1 hover:text-cyan-400">Experience</a>
-      <a href="#skills" class="block py-1 hover:text-cyan-400">Skills</a>
-      <a href="#contact" class="block py-1 hover:text-cyan-400">Contact</a>
-      <div class="pt-2 border-t border-darkborder flex items-center justify-between">
-        <a href="assets/docs/Hariprasad_Anand_Resume.pdf" download class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs">
-          <i data-lucide="download" class="w-4 h-4"></i> Download Resume
+    <!-- Mobile menu -->
+    <div id="mobileNav" class="hidden md:hidden section-alt border-b border-surface-border px-6 pt-3 pb-5 space-y-2 text-sm">
+      <a href="#about"      class="block py-1 hover:text-white">About</a>
+      <a href="#ugv"        class="block py-1 hover:text-white">3D Hardware</a>
+      <a href="#experience" class="block py-1 hover:text-white">Experience</a>
+      <a href="#projects"   class="block py-1 hover:text-white">Projects</a>
+      <a href="#skills"     class="block py-1 hover:text-white">Skills</a>
+      <a href="#contact"    class="block py-1 hover:text-white">Contact</a>
+      <div class="pt-3 border-t border-surface-border flex items-center justify-between">
+        <a href="assets/docs/Hariprasad_Anand_Resume.pdf" download class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-sky-500 text-white text-xs font-semibold">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i> Download Resume
         </a>
-        <a href="https://github.com/Hhaarii" target="_blank" class="p-2 text-slate-300 hover:text-cyan-400">
-          <i data-lucide="github" class="w-5 h-5"></i>
-        </a>
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/Hhaarii" target="_blank" class="text-slate-400 hover:text-white"><i data-lucide="github" class="w-4 h-4"></i></a>
+          <a href="https://www.linkedin.com/in/hari-prasad-anand-90638126a/" target="_blank" class="text-slate-400 hover:text-white"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="relative z-10">
+  <main>
 
-    <!-- Hero Section -->
-    <section id="about" class="pt-12 sm:pt-20 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <!-- Left: Intro & Bio -->
-        <div class="lg:col-span-7 space-y-6">
-          
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono">
-            <i data-lucide="cpu" class="w-4 h-4"></i>
-            <span>Robotics & Automation Engineer // SMEC R&D</span>
-          </div>
+    <!-- ─── HERO ─────────────────────────────────────────────────────────── -->
+    <section id="about" class="pt-20 pb-20 max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Building Autonomous Systems From 
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400"> Silicon to SLAM.</span>
+        <!-- Left -->
+        <div class="lg:col-span-7 space-y-7">
+
+          <span class="inline-flex items-center gap-2 text-xs font-medium text-sky-400 bg-sky-950/40 border border-sky-500/20 px-3 py-1 rounded-md">
+            <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+            R&D Robotics Engineer · SMEC Automation
+          </span>
+
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-[1.12] tracking-tight">
+            From silicon to<br>
+            <span class="text-sky-400">autonomous navigation.</span>
           </h1>
 
-          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Hi, I'm <strong class="text-white font-semibold">Hariprasad Anand</strong>. I specialize in embedded firmware, custom KiCad PCB design, RF communication protocols (915 MHz), and full-stack autonomous ground & aerial vehicles (ROS 2, Nav2, Cartographer SLAM, Computer Vision).
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
+            I'm <strong class="text-white font-semibold">Hariprasad Anand</strong>, specialising in embedded firmware, custom KiCad PCB design, RF communication systems, and full-stack autonomous robotics — ROS 2, Nav2, Cartographer SLAM, and computer vision.
           </p>
 
-          <!-- Quick Telemetry Badge Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 font-mono text-xs text-slate-400">
-            <div class="p-2.5 rounded-lg bg-darkcard border border-darkborder flex items-center gap-2">
-              <i data-lucide="map-pin" class="w-4 h-4 text-cyan-400 shrink-0"></i>
-              <span>Kerala, India (Open to Remote / Reloc)</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-darkcard border border-darkborder flex items-center gap-2">
-              <i data-lucide="zap" class="w-4 h-4 text-amber-400 shrink-0"></i>
-              <span>STM32 &bull; ESP32 &bull; KiCad</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-darkcard border border-darkborder flex items-center gap-2 col-span-2 sm:col-span-1">
-              <i data-lucide="bot" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span>ROS 2 Humble &bull; Nav2</span>
-            </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">STM32 / ARM</span>
+            <span class="chip">KiCad PCB</span>
+            <span class="chip">ROS 2 Humble</span>
+            <span class="chip">Nav2 & SLAM</span>
+            <span class="chip">915 MHz RF</span>
+            <span class="chip">SPI · I2C · Modbus</span>
           </div>
 
-          <!-- CTAs -->
-          <div class="pt-4 flex flex-wrap items-center gap-4">
-            <a href="#3d-ugv" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-400 text-slate-950 font-bold text-sm tracking-wide hover:brightness-110 transition shadow-[0_0_20px_rgba(6,182,212,0.35)]">
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#ugv" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-semibold text-sm transition shadow">
               <i data-lucide="box" class="w-4 h-4"></i> Interactive 3D Rover
             </a>
-            <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-darkcard border border-darkborder hover:border-cyan-500/50 hover:text-cyan-400 text-slate-200 font-semibold text-sm transition">
-              <i data-lucide="code" class="w-4 h-4"></i> View Projects
+            <a href="#projects" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-card hover:bg-[#132040] border border-surface-border text-slate-200 font-medium text-sm transition">
+              <i data-lucide="layers" class="w-4 h-4 text-slate-400"></i> Projects
             </a>
-            <div class="flex items-center gap-2">
-              <a href="https://github.com/Hhaarii" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-darkcard border border-darkborder text-slate-300 hover:text-cyan-400 hover:border-cyan-400/50 transition" title="GitHub Profile">
-                <i data-lucide="github" class="w-5 h-5"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/hari-prasad-anand-90638126a/" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-darkcard border border-darkborder text-slate-300 hover:text-cyan-400 hover:border-cyan-400/50 transition" title="LinkedIn Profile">
-                <i data-lucide="linkedin" class="w-5 h-5"></i>
-              </a>
-              <a href="mailto:haripanand04@gmail.com" class="p-3 rounded-xl bg-darkcard border border-darkborder text-slate-300 hover:text-cyan-400 hover:border-cyan-400/50 transition" title="Send Email">
-                <i data-lucide="mail" class="w-5 h-5"></i>
-              </a>
+            <a href="assets/docs/Hariprasad_Anand_Resume.pdf" download class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-card hover:bg-[#132040] border border-surface-border text-slate-200 font-medium text-sm transition">
+              <i data-lucide="download" class="w-4 h-4 text-slate-400"></i> Resume
+            </a>
+            <div class="flex gap-1.5">
+              <a href="https://github.com/Hhaarii" target="_blank" class="p-2.5 rounded-lg bg-surface-card hover:bg-[#132040] border border-surface-border text-slate-400 hover:text-white transition" title="GitHub"><i data-lucide="github" class="w-4 h-4"></i></a>
+              <a href="https://www.linkedin.com/in/hari-prasad-anand-90638126a/" target="_blank" class="p-2.5 rounded-lg bg-surface-card hover:bg-[#132040] border border-surface-border text-slate-400 hover:text-white transition" title="LinkedIn"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
             </div>
           </div>
 
         </div>
 
-        <!-- Right: Interactive Live Telemetry / Terminal Card -->
+        <!-- Right: Professional Card -->
         <div class="lg:col-span-5">
-          <div class="relative rounded-2xl bg-darkcard border border-darkborder neon-border p-6 shadow-2xl backdrop-blur-xl overflow-hidden group">
-            
-            <!-- Terminal Header -->
-            <div class="flex items-center justify-between pb-4 border-b border-darkborder mb-4">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
-                <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-                <span class="ml-2 font-mono text-xs text-slate-400">telemetry_node.py</span>
-              </div>
-              <span class="font-mono text-[10px] text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/30">915MHz OK</span>
-            </div>
+          <div class="rounded-2xl bg-surface-card border border-surface-border p-6 space-y-5">
+            <p class="text-[11px] font-semibold uppercase tracking-widest text-slate-500">Professional Snapshot</p>
 
-            <!-- Terminal Body -->
-            <div class="font-mono text-xs space-y-2.5 text-slate-300">
-              <div class="flex items-center justify-between text-slate-500">
-                <span>[INIT] Link Established</span>
-                <span class="text-emerald-400">ST-Link SWD : CONNECTED</span>
-              </div>
-              
-              <div class="p-3 rounded-lg bg-darkbg/80 border border-slate-800/80 space-y-1.5">
-                <div class="flex justify-between">
-                  <span class="text-slate-400">MCU:</span>
-                  <span class="text-cyan-300">STM32F103 / ARM Cortex-M</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Companion:</span>
-                  <span class="text-cyan-300">Raspberry Pi 4 (Ubuntu + ROS 2)</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Baudrate:</span>
-                  <span class="text-emerald-400">115200 bps &bull; 0% Packet Loss</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Localization:</span>
-                  <span class="text-teal-300">Cartographer SLAM &bull; 2D LiDAR</span>
-                </div>
-              </div>
+            <div class="space-y-4">
 
-              <div class="pt-2">
-                <div class="text-[11px] text-slate-400 mb-1 flex justify-between">
-                  <span>SUBSYSTEM HEALTH</span>
-                  <span class="text-cyan-400">100% NOMINAL</span>
-                </div>
-                <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                  <div class="bg-gradient-to-r from-cyan-400 to-emerald-400 h-1.5 rounded-full w-full animate-pulse"></div>
-                </div>
-              </div>
-
-              <!-- Quick Quote / Focus -->
-              <p class="text-[11px] text-slate-400 italic pt-2 border-t border-darkborder/70">
-                &ldquo;From schematic capture in KiCad to ROS 2 Nav2 navigation stacks, bridging real physical hardware with intelligent autonomy.&rdquo;
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION: 3D Hardware Model & CAD Showcase -->
-    <section id="3d-ugv" class="py-16 bg-slate-950/60 border-y border-darkborder">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-10">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-3">
-            <i data-lucide="box" class="w-3.5 h-3.5"></i>
-            <span>Interactive 3D Hardware Inspection</span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Autonomous Mapping UGV (Gesar v3)
-          </h2>
-          <p class="text-slate-400 text-sm sm:text-base mt-2">
-            Rotate, zoom, and inspect the custom skid-steer autonomous ground vehicle engineered for real-time SLAM, LiDAR mapping, and STM32 motor telemetry.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          <!-- 3D Model Viewer Canvas -->
-          <div class="lg:col-span-7 bg-darkcard rounded-2xl border border-darkborder neon-border p-4 relative group shadow-2xl">
-            <div class="absolute top-6 left-6 z-10 flex items-center gap-2 bg-darkbg/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-darkborder text-xs font-mono text-cyan-400">
-              <i data-lucide="move-3d" class="w-4 h-4 text-cyan-400"></i>
-              <span>Drag to Rotate &bull; Pinch/Scroll to Zoom</span>
-            </div>
-
-            <!-- Camera control reset buttons -->
-            <div class="absolute top-6 right-6 z-10 flex items-center gap-1.5 bg-darkbg/80 backdrop-blur-md p-1.5 rounded-lg border border-darkborder text-xs font-mono">
-              <button onclick="setCamera('0deg', '75deg', '105%')" class="px-2 py-1 rounded hover:bg-cyan-500/20 hover:text-cyan-300 text-slate-300 transition">Front</button>
-              <button onclick="setCamera('45deg', '55deg', '105%')" class="px-2 py-1 rounded hover:bg-cyan-500/20 hover:text-cyan-300 text-slate-300 transition">Iso</button>
-              <button onclick="setCamera('0deg', '15deg', '105%')" class="px-2 py-1 rounded hover:bg-cyan-500/20 hover:text-cyan-300 text-slate-300 transition">Top</button>
-            </div>
-
-            <!-- Model Viewer Element -->
-            <model-viewer 
-              id="ugvViewer"
-              src="assets/models/ugv_v3_gesar.glb" 
-              alt="Gesar v3 Autonomous Ground Vehicle 3D Model"
-              auto-rotate 
-              auto-rotate-delay="2000"
-              rotation-per-second="20deg"
-              camera-controls 
-              touch-action="pan-y" 
-              shadow-intensity="1.5" 
-              exposure="1.1"
-              camera-orbit="45deg 65deg 105%"
-              class="w-full h-[420px] rounded-xl bg-gradient-to-b from-darkcard to-darkbg">
-            </model-viewer>
-
-            <div class="mt-4 pt-3 border-t border-darkborder flex items-center justify-between text-xs font-mono text-slate-400">
-              <span>Format: GLTF / GLB (SolidWorks &rarr; Blender &rarr; WebGL)</span>
-              <span class="text-cyan-400 flex items-center gap-1">
-                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Active Physics Envelope
-              </span>
-            </div>
-          </div>
-
-          <!-- Specifications & Subsystems Breakdown -->
-          <div class="lg:col-span-5 space-y-4">
-            
-            <div class="p-4 rounded-xl bg-darkcard border border-darkborder hover:border-cyan-500/40 transition">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
-                  <i data-lucide="navigation" class="w-4 h-4"></i>
+              <div class="flex gap-3 items-start">
+                <div class="w-8 h-8 rounded-lg bg-sky-950/60 border border-sky-500/20 grid place-items-center text-sky-400 shrink-0">
+                  <i data-lucide="briefcase" class="w-4 h-4"></i>
                 </div>
                 <div>
-                  <h3 class="font-bold text-white text-sm">Autonomous Navigation Stack</h3>
-                  <span class="text-xs font-mono text-cyan-400">ROS 2 Humble &bull; Nav2 &bull; SLAM</span>
+                  <p class="text-[11px] text-slate-500">Current Role</p>
+                  <p class="text-sm font-semibold text-white">Robotics Engineer, R&D</p>
+                  <p class="text-xs text-slate-400">SMEC Automation · July 2026 – Present</p>
                 </div>
               </div>
-              <p class="text-xs text-slate-300 leading-relaxed">
-                Utilizes Cartographer 2D/3D LiDAR SLAM for millimeter-precision spatial mapping, dynamic obstacle avoidance, and waypoint path execution.
-              </p>
-            </div>
 
-            <div class="p-4 rounded-xl bg-darkcard border border-darkborder hover:border-cyan-500/40 transition">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-400">
+              <div class="flex gap-3 items-start">
+                <div class="w-8 h-8 rounded-lg bg-teal-950/60 border border-teal-500/20 grid place-items-center text-teal-400 shrink-0">
+                  <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <p class="text-[11px] text-slate-500">Education</p>
+                  <p class="text-sm font-semibold text-white">B.Tech in Robotics & Automation</p>
+                  <p class="text-xs text-slate-400">Toc H IST · CGPA 7.37 · Class of 2026</p>
+                </div>
+              </div>
+
+              <div class="flex gap-3 items-start">
+                <div class="w-8 h-8 rounded-lg bg-indigo-950/60 border border-indigo-500/20 grid place-items-center text-indigo-400 shrink-0">
                   <i data-lucide="cpu" class="w-4 h-4"></i>
                 </div>
                 <div>
-                  <h3 class="font-bold text-white text-sm">Hierarchical Control Architecture</h3>
-                  <span class="text-xs font-mono text-teal-400">STM32 Microcontroller + Raspberry Pi 4</span>
+                  <p class="text-[11px] text-slate-500">Hardware Focus</p>
+                  <p class="text-sm font-semibold text-white">Embedded Bring-Up & Custom PCB</p>
+                  <p class="text-xs text-slate-400">STM32 · KiCad · SWD · SPI/I2C/Modbus</p>
                 </div>
               </div>
-              <p class="text-xs text-slate-300 leading-relaxed">
-                Separated high-level ROS navigation from low-level deterministic motor control over CRC-checked bidirectional UART with real-time wheel encoder telemetry.
-              </p>
-            </div>
 
-            <div class="p-4 rounded-xl bg-darkcard border border-darkborder hover:border-cyan-500/40 transition">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                  <i data-lucide="layers" class="w-4 h-4"></i>
+              <div class="flex gap-3 items-start">
+                <div class="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-500/20 grid place-items-center text-emerald-400 shrink-0">
+                  <i data-lucide="bot" class="w-4 h-4"></i>
                 </div>
                 <div>
-                  <h3 class="font-bold text-white text-sm">Industrial CAD & Mechanical Design</h3>
-                  <span class="text-xs font-mono text-emerald-400">SolidWorks &bull; Modular Skid-Steer Chassis</span>
+                  <p class="text-[11px] text-slate-500">Autonomy Stack</p>
+                  <p class="text-sm font-semibold text-white">ROS 2 Navigation & Perception</p>
+                  <p class="text-xs text-slate-400">Nav2 · Cartographer SLAM · OpenCV · YOLOv8</p>
                 </div>
               </div>
-              <p class="text-xs text-slate-300 leading-relaxed">
-                Engineered for harsh terrain and vibration dampening with quick-swap battery bays and integrated camera & sensor mounts.
-              </p>
+
             </div>
 
-          </div>
-
-        </div>
-
-        <!-- CAD Render Photo Gallery -->
-        <div class="mt-12">
-          <h4 class="text-sm font-mono text-cyan-400 mb-4 flex items-center gap-2">
-            <i data-lucide="camera" class="w-4 h-4"></i> HIGH-RESOLUTION CAD PHOTOREALISTIC RENDERS
-          </h4>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div class="group relative rounded-xl overflow-hidden border border-darkborder bg-darkcard">
-              <img src="assets/images/render_iso.png" alt="UGV Isometric View" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent opacity-80"></div>
-              <span class="absolute bottom-2 left-2 text-[11px] font-mono text-slate-300">Isometric Angle</span>
-            </div>
-            <div class="group relative rounded-xl overflow-hidden border border-darkborder bg-darkcard">
-              <img src="assets/images/render_front_closeup.png" alt="UGV Front Closeup" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent opacity-80"></div>
-              <span class="absolute bottom-2 left-2 text-[11px] font-mono text-slate-300">Front Sensor Array</span>
-            </div>
-            <div class="group relative rounded-xl overflow-hidden border border-darkborder bg-darkcard">
-              <img src="assets/images/render_top.png" alt="UGV Top Deck" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent opacity-80"></div>
-              <span class="absolute bottom-2 left-2 text-[11px] font-mono text-slate-300">Top Deck Layout</span>
-            </div>
-            <div class="group relative rounded-xl overflow-hidden border border-darkborder bg-darkcard">
-              <img src="assets/images/render_side.png" alt="UGV Side Profile" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent opacity-80"></div>
-              <span class="absolute bottom-2 left-2 text-[11px] font-mono text-slate-300">Skid-Steer Drive</span>
+            <div class="border-t border-surface-border pt-4">
+              <a href="mailto:haripanand04@gmail.com" class="flex items-center gap-2 text-xs text-sky-400 hover:text-sky-300 font-medium transition">
+                <i data-lucide="mail" class="w-3.5 h-3.5"></i> haripanand04@gmail.com
+              </a>
             </div>
           </div>
         </div>
@@ -444,461 +257,355 @@
       </div>
     </section>
 
-    <!-- SECTION: Experience -->
-    <section id="experience" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-3">
-          <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
-          <span>Industry Career</span>
+    <!-- ─── 3D UGV ─────────────────────────────────────────────────────── -->
+    <section id="ugv" class="py-16 section-alt border-y border-surface-border">
+      <div class="max-w-6xl mx-auto px-6">
+
+        <div class="mb-8">
+          <p class="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-1">Hardware Engineering</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Autonomous Mapping UGV — Gesar v3</h2>
+          <p class="text-slate-400 text-sm mt-1">Rotate and inspect the custom skid-steer autonomous ground vehicle built for real-time SLAM and LiDAR telemetry.</p>
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Professional Experience</h2>
-      </div>
 
-      <div class="relative border-l-2 border-cyan-500/30 pl-6 sm:pl-8 ml-2 sm:ml-4 space-y-12">
-        
-        <!-- Experience Entry: SMEC Automation -->
-        <div class="relative group">
-          <!-- Timeline glowing pin -->
-          <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-darkbg group-hover:scale-125 transition-transform shadow-[0_0_12px_rgba(34,211,238,0.8)]"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-          <div class="p-6 rounded-2xl bg-darkcard border border-darkborder neon-border transition">
-            
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-              <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                  Robotics Engineer, R&D
-                </h3>
-                <div class="text-cyan-400 font-medium text-sm flex items-center gap-2 mt-0.5">
-                  <i data-lucide="building-2" class="w-4 h-4"></i>
-                  <span>SMEC Automation</span>
-                  <span class="text-slate-500">&bull;</span>
-                  <span class="text-slate-400">Kerala, India</span>
-                </div>
-              </div>
-              <span class="inline-flex items-center font-mono text-xs px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 w-fit">
-                July 2026 – Present
-              </span>
+          <!-- Viewer -->
+          <div class="lg:col-span-7 bg-surface-card rounded-xl border border-surface-border overflow-hidden relative">
+            <div class="absolute top-4 left-4 z-10 bg-[#0a0f1e]/80 backdrop-blur-sm text-xs text-slate-300 px-3 py-1.5 rounded-md border border-surface-border flex items-center gap-1.5">
+              <i data-lucide="rotate-3d" class="w-3.5 h-3.5 text-sky-400"></i> Drag · Scroll to zoom
+            </div>
+            <div class="absolute top-4 right-4 z-10 bg-[#0a0f1e]/80 backdrop-blur-sm text-xs flex gap-0.5 p-1 rounded-md border border-surface-border">
+              <button onclick="setCamera('0deg','75deg','105%')" class="px-2 py-0.5 rounded hover:bg-surface-card text-slate-300 hover:text-white transition">Front</button>
+              <button onclick="setCamera('45deg','55deg','105%')" class="px-2 py-0.5 rounded hover:bg-surface-card text-slate-300 hover:text-white transition">Iso</button>
+              <button onclick="setCamera('0deg','15deg','105%')" class="px-2 py-0.5 rounded hover:bg-surface-card text-slate-300 hover:text-white transition">Top</button>
+            </div>
+            <model-viewer id="ugvViewer"
+              src="assets/models/ugv_v3_gesar.glb"
+              alt="Gesar v3 Autonomous Ground Vehicle"
+              auto-rotate auto-rotate-delay="1500" rotation-per-second="22deg"
+              camera-controls touch-action="pan-y"
+              shadow-intensity="1" exposure="1.05"
+              camera-orbit="45deg 65deg 105%"
+              class="bg-[#0a0f1e]">
+            </model-viewer>
+          </div>
+
+          <!-- Subsystems -->
+          <div class="lg:col-span-5 space-y-3">
+            <div class="card p-4 rounded-xl bg-surface-card border border-surface-border">
+              <p class="text-sm font-semibold text-white flex items-center gap-2 mb-1.5">
+                <i data-lucide="navigation-2" class="w-4 h-4 text-sky-400"></i> Navigation & SLAM
+              </p>
+              <p class="text-xs text-slate-400 leading-relaxed">ROS 2 Humble + Nav2 with Cartographer for 2D/3D spatial mapping, adaptive path planning, and dynamic obstacle clearance.</p>
+            </div>
+            <div class="card p-4 rounded-xl bg-surface-card border border-surface-border">
+              <p class="text-sm font-semibold text-white flex items-center gap-2 mb-1.5">
+                <i data-lucide="cpu" class="w-4 h-4 text-teal-400"></i> STM32 & Raspberry Pi Telemetry
+              </p>
+              <p class="text-xs text-slate-400 leading-relaxed">Hardware-separated compute: Linux ROS nodes communicate with a deterministic STM32 motor controller over CRC-verified UART with real-time encoder feedback.</p>
+            </div>
+            <div class="card p-4 rounded-xl bg-surface-card border border-surface-border">
+              <p class="text-sm font-semibold text-white flex items-center gap-2 mb-1.5">
+                <i data-lucide="wrench" class="w-4 h-4 text-emerald-400"></i> SolidWorks Mechanical Design
+              </p>
+              <p class="text-xs text-slate-400 leading-relaxed">Modular skid-steer chassis with low-CG battery mount, vibration isolation, and interchangeable sensor brackets.</p>
             </div>
 
-            <p class="text-slate-300 text-sm leading-relaxed mb-4">
-              Leading hardware bring-up and embedded firmware development for industrial robotics, sensor communication nodes, and long-range RF links.
+            <!-- Render gallery -->
+            <div class="grid grid-cols-2 gap-2 pt-1">
+              <div class="rounded-lg overflow-hidden border border-surface-border bg-surface-card h-24">
+                <img src="assets/images/render_iso.png" alt="Isometric" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+              <div class="rounded-lg overflow-hidden border border-surface-border bg-surface-card h-24">
+                <img src="assets/images/render_front_closeup.png" alt="Front closeup" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+              <div class="rounded-lg overflow-hidden border border-surface-border bg-surface-card h-24">
+                <img src="assets/images/render_top.png" alt="Top deck" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+              <div class="rounded-lg overflow-hidden border border-surface-border bg-surface-card h-24">
+                <img src="assets/images/render_side.png" alt="Side profile" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── EXPERIENCE ────────────────────────────────────────────────── -->
+    <section id="experience" class="py-16 max-w-6xl mx-auto px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-1">Career</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-10">Work Experience</h2>
+
+      <div class="timeline pl-6 sm:pl-8 ml-3 space-y-8">
+        <div class="relative">
+          <div class="absolute -left-[29px] sm:-left-[37px] top-1.5 w-3 h-3 rounded-full bg-sky-400 ring-4 ring-[#0a0f1e]"></div>
+
+          <div class="rounded-xl bg-surface-card border border-surface-border p-6 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">Robotics Engineer, R&D</h3>
+                <p class="text-sm text-sky-400 font-medium">SMEC Automation <span class="text-slate-500">· Kerala, India</span></p>
+              </div>
+              <span class="chip">July 2026 – Present</span>
+            </div>
+
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Leading hardware bring-up and embedded firmware development for industrial robotics, sensor communication nodes, and long-range RF data links.
             </p>
 
-            <!-- Accomplishment Bullets -->
-            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+            <ul class="space-y-2.5 text-sm text-slate-300">
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
-                <span><strong>Custom PCB Design & Fabrication:</strong> Engineered schematic capture and PCB layouts for ARM-based embedded controllers in KiCad, managing complete lifecycle through DRC verification and fabrication.</span>
+                <i data-lucide="check-circle" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                <span><strong class="text-white">Custom PCB Design in KiCad</strong> — full lifecycle from schematic capture, layout, and DRC through fabrication hand-off for ARM-based embedded controllers.</span>
               </li>
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
-                <span><strong>Board Bring-Up & Signal Debugging:</strong> Utilized ST-Link (SWD), UART serial debug consoles, oscilloscopes, and logic analyzers to isolate hardware race conditions and electrical signal anomalies.</span>
+                <i data-lucide="check-circle" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                <span><strong class="text-white">Board Bring-Up & Signal Debug</strong> — isolated electrical and firmware faults using ST-Link (SWD), oscilloscopes, and logic analyzers on multi-layer boards.</span>
               </li>
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
-                <span><strong>Industrial Protocols & Bus Mastery:</strong> Implemented and validated SPI, I2C, USART/UART, and Modbus RTU communication across multi-node microcontroller architectures.</span>
+                <i data-lucide="check-circle" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                <span><strong class="text-white">Industrial Protocols</strong> — validated SPI, I2C, USART/UART, and Modbus RTU across sensor nodes and PLC systems.</span>
               </li>
               <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
-                <span><strong>Zero-Packet-Loss RF Systems:</strong> Designed and calibrated reliable 915 MHz RF links using RFM69HCW transceivers with custom packet checksumming for mission-critical remote safety alerting.</span>
+                <i data-lucide="check-circle" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5"></i>
+                <span><strong class="text-white">915 MHz RF Links</strong> — developed zero-packet-loss telemetry using RFM69HCW transceivers with custom packet checksumming for safety-critical alerting.</span>
               </li>
             </ul>
 
-            <!-- Tags -->
-            <div class="mt-5 pt-4 border-t border-darkborder flex flex-wrap gap-2 text-xs font-mono">
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300">STM32</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300">KiCad PCB</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300">ST-Link / SWD</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300">RFM69HCW</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300">Modbus</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300">SPI / I2C / UART</span>
+            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-surface-border">
+              <span class="chip">STM32</span><span class="chip">KiCad</span><span class="chip">ST-Link / SWD</span>
+              <span class="chip">RFM69HCW</span><span class="chip">Modbus RTU</span><span class="chip">SPI · I2C · UART</span>
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- SECTION: Projects -->
-    <section id="projects" class="py-20 bg-slate-950/70 border-y border-darkborder">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <!-- ─── PROJECTS ──────────────────────────────────────────────────── -->
+    <section id="projects" class="py-16 section-alt border-y border-surface-border">
+      <div class="max-w-6xl mx-auto px-6">
+
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-3">
-              <i data-lucide="code-2" class="w-3.5 h-3.5"></i>
-              <span>Engineering Portfolio</span>
-            </div>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Featured Projects</h2>
-            <p class="text-slate-400 text-sm mt-1">Full-stack robotics, embedded systems, and applied AI systems.</p>
+            <p class="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-1">Work</p>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Featured Projects</h2>
           </div>
-
-          <!-- Project Filter Pills -->
-          <div class="flex flex-wrap gap-2 text-xs font-mono" id="projectFilters">
-            <button onclick="filterProjects('all')" class="filter-btn active px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition">All</button>
-            <button onclick="filterProjects('robotics')" class="filter-btn px-3 py-1.5 rounded-lg bg-darkcard border border-darkborder text-slate-300 hover:text-cyan-400 transition">Robotics & ROS</button>
-            <button onclick="filterProjects('hardware')" class="filter-btn px-3 py-1.5 rounded-lg bg-darkcard border border-darkborder text-slate-300 hover:text-cyan-400 transition">Hardware & RF</button>
-            <button onclick="filterProjects('ai')" class="filter-btn px-3 py-1.5 rounded-lg bg-darkcard border border-darkborder text-slate-300 hover:text-cyan-400 transition">AI & Vision</button>
-            <button onclick="filterProjects('iot')" class="filter-btn px-3 py-1.5 rounded-lg bg-darkcard border border-darkborder text-slate-300 hover:text-cyan-400 transition">IoT & Networks</button>
+          <!-- Filter Pills -->
+          <div class="flex flex-wrap gap-1.5 text-xs font-medium" id="filterGroup">
+            <button onclick="filter('all')"      class="filter-btn active px-3 py-1 rounded-md bg-sky-500 text-white">All</button>
+            <button onclick="filter('robotics')" class="filter-btn px-3 py-1 rounded-md bg-surface-card border border-surface-border text-slate-300 hover:text-white transition">Robotics</button>
+            <button onclick="filter('hardware')" class="filter-btn px-3 py-1 rounded-md bg-surface-card border border-surface-border text-slate-300 hover:text-white transition">Hardware & RF</button>
+            <button onclick="filter('ai')"       class="filter-btn px-3 py-1 rounded-md bg-surface-card border border-surface-border text-slate-300 hover:text-white transition">AI & Vision</button>
+            <button onclick="filter('iot')"      class="filter-btn px-3 py-1 rounded-md bg-surface-card border border-surface-border text-slate-300 hover:text-white transition">IoT</button>
           </div>
         </div>
 
-        <!-- Project Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsContainer">
-          
-          <!-- Card 1: Autonomous Mapping UGV -->
-          <div class="project-card robotics rounded-2xl bg-darkcard border border-darkborder neon-border p-6 flex flex-col justify-between transition group">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
-                  <i data-lucide="navigation" class="w-5 h-5"></i>
-                </span>
-                <a href="#3d-ugv" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">
-                  View 3D <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                </a>
-              </div>
+        <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-              <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                Autonomous Mapping UGV (Gesar v3)
-              </h3>
-              <p class="text-xs font-mono text-cyan-400/90 mt-1 mb-3">Lead Robotics & Embedded Developer</p>
-              
-              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Engineered an autonomous ground vehicle utilizing ROS 2, Nav2, and SLAM for real-time 2D/3D environment mapping. Designed reliable bidirectional UART motor control and sensor feedback telemetry between a Raspberry Pi companion and STM32 microcontroller.
+          <!-- Card template ─ consistent structure -->
+          <!-- 1 -->
+          <div class="proj robotics card p-6 rounded-xl bg-surface-card border border-surface-border flex flex-col gap-4">
+            <div>
+              <p class="text-[11px] font-mono text-sky-400 mb-2">ROS 2 · Nav2 · SLAM</p>
+              <h3 class="text-base font-bold text-white mb-1">Autonomous Mapping UGV</h3>
+              <p class="text-xs text-slate-400 mb-3">Lead Robotics & Embedded Developer</p>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Full-stack autonomous rover with Cartographer SLAM for 2D/3D mapping, obstacle avoidance, and bidirectional UART telemetry to an STM32 motor controller.
               </p>
             </div>
-
-            <div>
-              <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono">
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300">ROS 2</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300">Nav2</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300">SLAM</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300">STM32</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300">Raspberry Pi</span>
-              </div>
-              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-cyan-400">
-                <i data-lucide="github" class="w-4 h-4"></i> Repository & Schematics &rarr;
+            <div class="mt-auto space-y-3">
+              <div class="flex flex-wrap gap-1.5"><span class="chip">ROS 2</span><span class="chip">Nav2</span><span class="chip">STM32</span><span class="chip">RPi 4</span></div>
+              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 font-medium transition">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i> View on GitHub →
               </a>
             </div>
           </div>
 
-          <!-- Card 2: Coast Guard RF Warning System & Rover -->
-          <div class="project-card hardware rounded-2xl bg-darkcard border border-darkborder neon-border p-6 flex flex-col justify-between transition group">
+          <!-- 2 -->
+          <div class="proj hardware card p-6 rounded-xl bg-surface-card border border-surface-border flex flex-col gap-4">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                  <i data-lucide="radio" class="w-5 h-5"></i>
-                </span>
-                <span class="text-xs font-mono text-amber-400">915 MHz RF</span>
-              </div>
-
-              <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                RF Warning System & Agricultural Rover
-              </h3>
-              <p class="text-xs font-mono text-cyan-400/90 mt-1 mb-3">Hardware & Firmware Engineer</p>
-              
-              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Designed a Coast Guard alarm link pairing STM32F103 MCUs over 915 MHz RFM69HCW transceivers with instant LED and haptic vibration alerts. Constructed a skid-steer autonomous rover equipped with a 4-DOF manipulator and GPS telemetry.
+              <p class="text-[11px] font-mono text-amber-400 mb-2">STM32 · 915 MHz RF · KiCad</p>
+              <h3 class="text-base font-bold text-white mb-1">RF Warning System & Ag Rover</h3>
+              <p class="text-xs text-slate-400 mb-3">Hardware & Firmware Engineer</p>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Coast Guard alert link over 915 MHz RFM69HCW with zero-packet-loss; autonomous agricultural rover with 4-DOF arm, GPS tracking, and soil sensors.
               </p>
             </div>
-
-            <div>
-              <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono">
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-300">STM32F103</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-300">RFM69HCW</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-300">SolidWorks</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-300">GPS RTK</span>
-              </div>
-              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-cyan-400">
-                <i data-lucide="github" class="w-4 h-4"></i> Repository & Schematics &rarr;
+            <div class="mt-auto space-y-3">
+              <div class="flex flex-wrap gap-1.5"><span class="chip">STM32F103</span><span class="chip">RFM69HCW</span><span class="chip">GPS RTK</span><span class="chip">SolidWorks</span></div>
+              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 font-medium transition">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i> View on GitHub →
               </a>
             </div>
           </div>
 
-          <!-- Card 3: AI Chatbot & Computer Vision Systems -->
-          <div class="project-card ai rounded-2xl bg-darkcard border border-darkborder neon-border p-6 flex flex-col justify-between transition group">
+          <!-- 3 -->
+          <div class="proj ai card p-6 rounded-xl bg-surface-card border border-surface-border flex flex-col gap-4">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
-                  <i data-lucide="scan" class="w-5 h-5"></i>
-                </span>
-                <span class="text-xs font-mono text-purple-400">YOLO + LLM</span>
-              </div>
-
-              <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                AI Vision Systems & Customer Care Bot
-              </h3>
-              <p class="text-xs font-mono text-cyan-400/90 mt-1 mb-3">AI / Software Developer</p>
-              
-              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Built an enterprise knowledge support bot for SMEC Automation grounded in proprietary manuals with human escalation. Deployed computer vision systems including Plant Disease Detection (YOLO/OpenCV) and Target Warning with ROS person re-identification.
+              <p class="text-[11px] font-mono text-violet-400 mb-2">YOLOv8 · OpenCV · LLM</p>
+              <h3 class="text-base font-bold text-white mb-1">AI Vision Systems & Support Bot</h3>
+              <p class="text-xs text-slate-400 mb-3">AI / Software Developer</p>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Enterprise knowledge support bot with human escalation. Computer vision for plant disease detection and ROS-integrated target identification & alerting.
               </p>
             </div>
-
-            <div>
-              <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono">
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-purple-300">YOLOv8</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-purple-300">OpenCV</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-purple-300">Groq / Ollama</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-purple-300">Flask</span>
-              </div>
-              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-cyan-400">
-                <i data-lucide="github" class="w-4 h-4"></i> Repository & Schematics &rarr;
+            <div class="mt-auto space-y-3">
+              <div class="flex flex-wrap gap-1.5"><span class="chip">YOLOv8</span><span class="chip">OpenCV</span><span class="chip">Groq/Ollama</span><span class="chip">Flask</span></div>
+              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 font-medium transition">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i> View on GitHub →
               </a>
             </div>
           </div>
 
-          <!-- Card 4: MQTT Multi-Device Control -->
-          <div class="project-card iot rounded-2xl bg-darkcard border border-darkborder neon-border p-6 flex flex-col justify-between transition group">
+          <!-- 4 -->
+          <div class="proj iot card p-6 rounded-xl bg-surface-card border border-surface-border flex flex-col gap-4">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                  <i data-lucide="network" class="w-5 h-5"></i>
-                </span>
-                <span class="text-xs font-mono text-emerald-400">Tailscale Mesh</span>
-              </div>
-
-              <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                MQTT Multi-Device Control System
-              </h3>
-              <p class="text-xs font-mono text-cyan-400/90 mt-1 mb-3">IoT Developer</p>
-              
-              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Engineered a secure multi-device orchestration framework via Mosquitto broker over Tailscale mesh VPN, enabling low-latency control, status sync, and screen mirroring across mobile and desktop devices.
+              <p class="text-[11px] font-mono text-emerald-400 mb-2">MQTT · Tailscale · ESP32</p>
+              <h3 class="text-base font-bold text-white mb-1">MQTT Multi-Device Control</h3>
+              <p class="text-xs text-slate-400 mb-3">IoT Developer</p>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Secure device orchestration via Mosquitto broker over Tailscale mesh VPN, enabling low-latency control and screen mirroring across mobile and desktop.
               </p>
             </div>
-
-            <div>
-              <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono">
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-emerald-300">MQTT</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-emerald-300">Mosquitto</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-emerald-300">Tailscale</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-emerald-300">ESP32</span>
-              </div>
-              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-cyan-400">
-                <i data-lucide="github" class="w-4 h-4"></i> Repository & Schematics &rarr;
+            <div class="mt-auto space-y-3">
+              <div class="flex flex-wrap gap-1.5"><span class="chip">MQTT</span><span class="chip">Mosquitto</span><span class="chip">Tailscale</span><span class="chip">ESP32</span></div>
+              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 font-medium transition">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i> View on GitHub →
               </a>
             </div>
           </div>
 
-          <!-- Card 5: Drone Avionics & UAV Control -->
-          <div class="project-card robotics rounded-2xl bg-darkcard border border-darkborder neon-border p-6 flex flex-col justify-between transition group">
+          <!-- 5 -->
+          <div class="proj robotics card p-6 rounded-xl bg-surface-card border border-surface-border flex flex-col gap-4">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
-                  <i data-lucide="send" class="w-5 h-5"></i>
-                </span>
-                <span class="text-xs font-mono text-blue-400">ArduPilot / UAV</span>
-              </div>
-
-              <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                Autonomous Aerial Vehicle (UAV) & Mission GCS
-              </h3>
-              <p class="text-xs font-mono text-cyan-400/90 mt-1 mb-3">Avionics & Flight Testing</p>
-              
-              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Flight stack configuration, telemetry calibration, and waypoint autonomous flight missions utilizing Mission Planner and ArduPilot for surveillance and geospatial surveys.
+              <p class="text-[11px] font-mono text-blue-400 mb-2">ArduPilot · Mission Planner</p>
+              <h3 class="text-base font-bold text-white mb-1">Autonomous Aerial Vehicle (UAV)</h3>
+              <p class="text-xs text-slate-400 mb-3">Avionics & Flight Testing</p>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Flight stack configuration, telemetry calibration, and waypoint mission planning via ArduPilot for autonomous surveillance and geospatial mapping.
               </p>
             </div>
-
-            <div>
-              <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono">
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-blue-300">ArduPilot</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-blue-300">Mission Planner</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-blue-300">UAV Avionics</span>
-              </div>
-              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-cyan-400">
-                <i data-lucide="github" class="w-4 h-4"></i> Repository & Schematics &rarr;
+            <div class="mt-auto space-y-3">
+              <div class="flex flex-wrap gap-1.5"><span class="chip">ArduPilot</span><span class="chip">Mission Planner</span><span class="chip">UAV Avionics</span></div>
+              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 font-medium transition">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i> View on GitHub →
               </a>
             </div>
           </div>
 
-          <!-- Card 6: Automated Resume & Application Engine -->
-          <div class="project-card iot rounded-2xl bg-darkcard border border-darkborder neon-border p-6 flex flex-col justify-between transition group">
+          <!-- 6 -->
+          <div class="proj iot card p-6 rounded-xl bg-surface-card border border-surface-border flex flex-col gap-4">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400">
-                  <i data-lucide="terminal" class="w-5 h-5"></i>
-                </span>
-                <span class="text-xs font-mono text-teal-400">Automation</span>
-              </div>
-
-              <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                Automated Career Pipeline & Resume Engine
-              </h3>
-              <p class="text-xs font-mono text-cyan-400/90 mt-1 mb-3">System Architect</p>
-              
-              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Engineered an intelligent CLI & Web dashboard managing profile state, JD matching, tailored HTML/PDF compilation, SQLite application logging, and SMTP dispatch automation.
+              <p class="text-[11px] font-mono text-teal-400 mb-2">Python · SQLite · Flask</p>
+              <h3 class="text-base font-bold text-white mb-1">Automated Application Pipeline</h3>
+              <p class="text-xs text-slate-400 mb-3">System Developer</p>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Intelligent CLI & web dashboard for automated career application tracking — JD matching, tailored HTML/PDF compilation, SQLite logging, and SMTP dispatch.
               </p>
             </div>
-
-            <div>
-              <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono">
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-teal-300">Python</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-teal-300">SQLite</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-teal-300">Jinja2</span>
-                <span class="px-2 py-0.5 rounded bg-slate-800 text-teal-300">Flask</span>
-              </div>
-              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-cyan-400">
-                <i data-lucide="github" class="w-4 h-4"></i> Repository & Schematics &rarr;
+            <div class="mt-auto space-y-3">
+              <div class="flex flex-wrap gap-1.5"><span class="chip">Python</span><span class="chip">SQLite</span><span class="chip">Jinja2</span><span class="chip">Flask</span></div>
+              <a href="https://github.com/Hhaarii" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 font-medium transition">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i> View on GitHub →
               </a>
             </div>
           </div>
 
         </div>
-
       </div>
     </section>
 
-    <!-- SECTION: Technical Skills Matrix -->
-    <section id="skills" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-3">
-          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-          <span>Competency Matrix</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Technical Arsenal</h2>
-        <p class="text-slate-400 text-sm mt-1">Cross-disciplinary competencies across embedded hardware, robotics, and software.</p>
-      </div>
+    <!-- ─── SKILLS ────────────────────────────────────────────────────── -->
+    <section id="skills" class="py-16 max-w-6xl mx-auto px-6">
+      <p class="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-1">Competencies</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-10">Skills & Background</h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <!-- Skill Block 1: Embedded & Hardware -->
-        <div class="p-6 rounded-2xl bg-darkcard border border-darkborder neon-border space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
-              <i data-lucide="microchip" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-white">Embedded & Hardware</h3>
-              <p class="text-xs text-slate-400 font-mono">Microcontrollers & Schematics</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2 text-xs font-mono">
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-cyan-300 border border-cyan-500/20">STM32 (ARM Cortex)</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-cyan-300 border border-cyan-500/20">ESP32</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-cyan-300 border border-cyan-500/20">KiCad PCB Design</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-cyan-300 border border-cyan-500/20">ST-Link / SWD</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-cyan-300 border border-cyan-500/20">RFM69HCW (915MHz)</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-cyan-300 border border-cyan-500/20">Raspberry Pi</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-cyan-300 border border-cyan-500/20">Arduino</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-cyan-300 border border-cyan-500/20">Logic Analyzers</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-cyan-300 border border-cyan-500/20">PLC Programming</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+
+        <div class="rounded-xl bg-surface-card border border-surface-border p-5 space-y-3">
+          <p class="text-sm font-bold text-white flex items-center gap-2">
+            <i data-lucide="cpu" class="w-4 h-4 text-sky-400"></i> Embedded & Hardware
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="chip">STM32 (ARM Cortex)</span><span class="chip">ESP32</span>
+            <span class="chip">KiCad PCB</span><span class="chip">ST-Link / SWD</span>
+            <span class="chip">RFM69 (915 MHz)</span><span class="chip">Logic Analyzers</span>
+            <span class="chip">Raspberry Pi</span><span class="chip">PLC</span>
           </div>
         </div>
 
-        <!-- Skill Block 2: Robotics & Protocols -->
-        <div class="p-6 rounded-2xl bg-darkcard border border-darkborder neon-border space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400">
-              <i data-lucide="bot" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-white">Robotics & Vision</h3>
-              <p class="text-xs text-slate-400 font-mono">Autonomy & Perception</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2 text-xs font-mono">
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-teal-300 border border-teal-500/20">ROS 2 / ROS 1</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-teal-300 border border-teal-500/20">Nav2</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-teal-300 border border-teal-500/20">Cartographer SLAM</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-teal-300 border border-teal-500/20">Gazebo Sim</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-teal-300 border border-teal-500/20">OpenCV</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-teal-300 border border-teal-500/20">YOLOv8</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-teal-300 border border-teal-500/20">UAV / ArduPilot</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-teal-300 border border-teal-500/20">InsightFace</span>
+        <div class="rounded-xl bg-surface-card border border-surface-border p-5 space-y-3">
+          <p class="text-sm font-bold text-white flex items-center gap-2">
+            <i data-lucide="bot" class="w-4 h-4 text-teal-400"></i> Robotics & Vision
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="chip">ROS 2 / ROS</span><span class="chip">Nav2</span>
+            <span class="chip">Cartographer SLAM</span><span class="chip">Gazebo</span>
+            <span class="chip">OpenCV</span><span class="chip">YOLOv8</span>
+            <span class="chip">ArduPilot / UAV</span><span class="chip">InsightFace</span>
           </div>
         </div>
 
-        <!-- Skill Block 3: Protocols & Software -->
-        <div class="p-6 rounded-2xl bg-darkcard border border-darkborder neon-border space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-              <i data-lucide="binary" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-white">Protocols & Software</h3>
-              <p class="text-xs text-slate-400 font-mono">Firmware, Comm & CAD</p>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2 text-xs font-mono">
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/20">C / C++</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/20">Python</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/20">SPI / I2C / UART</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/20">Modbus RTU</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/20">MQTT / Mosquitto</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/20">SolidWorks CAD</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/20">Linux / Bash</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/20">Git & CI/CD</span>
-            <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/20">Tailscale</span>
+        <div class="rounded-xl bg-surface-card border border-surface-border p-5 space-y-3">
+          <p class="text-sm font-bold text-white flex items-center gap-2">
+            <i data-lucide="code-2" class="w-4 h-4 text-emerald-400"></i> Software & Protocols
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="chip">C / C++</span><span class="chip">Python</span>
+            <span class="chip">SPI · I2C · UART</span><span class="chip">Modbus RTU</span>
+            <span class="chip">MQTT</span><span class="chip">SolidWorks</span>
+            <span class="chip">Linux / Bash</span><span class="chip">Git</span>
           </div>
         </div>
 
       </div>
 
-      <!-- Education & Certifications Row -->
-      <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        
-        <!-- Education -->
-        <div class="p-6 rounded-2xl bg-darkcard border border-darkborder space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
-              <i data-lucide="graduation-cap" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-white">Education</h3>
-              <p class="text-xs text-slate-400 font-mono">Academic Foundation</p>
-            </div>
-          </div>
+      <!-- Education & Certs -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-          <div class="border-l-2 border-cyan-500/30 pl-4 space-y-3">
+        <div class="rounded-xl bg-surface-card border border-surface-border p-5 space-y-4">
+          <p class="text-sm font-bold text-white flex items-center gap-2">
+            <i data-lucide="graduation-cap" class="w-4 h-4 text-sky-400"></i> Education
+          </p>
+          <div class="space-y-3 text-sm">
             <div>
-              <div class="text-sm font-bold text-white">B.Tech in Robotics and Automation</div>
-              <div class="text-xs text-cyan-400">Toc H Institute of Science and Technology &bull; 2022 – 2026</div>
-              <div class="text-xs text-slate-400 mt-1">CGPA: 7.37 | Core: Embedded Systems, Robotic Kinematics, Control Systems, Machine Vision</div>
+              <p class="font-semibold text-white">B.Tech in Robotics and Automation</p>
+              <p class="text-xs text-sky-400">Toc H Institute of Science and Technology · 2022 – 2026</p>
+              <p class="text-xs text-slate-400 mt-0.5">CGPA 7.37 · Embedded Systems, Kinematics, Control Systems, Machine Vision</p>
             </div>
-            <div class="pt-2">
-              <div class="text-sm font-bold text-white">Higher Secondary (CBSE Science)</div>
-              <div class="text-xs text-slate-400">SDVEMHSS &bull; Class XII: 86.2% | Class X: 86.6%</div>
+            <div class="border-t border-surface-border pt-3">
+              <p class="font-semibold text-white">Higher Secondary (CBSE)</p>
+              <p class="text-xs text-slate-400">SDVEMHSS · Class XII: 86.2% · Class X: 86.6%</p>
             </div>
           </div>
         </div>
 
-        <!-- Certifications -->
-        <div class="p-6 rounded-2xl bg-darkcard border border-darkborder space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-              <i data-lucide="award" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-white">Certifications & Training</h3>
-              <p class="text-xs text-slate-400 font-mono">Hands-on Industry Credentials</p>
-            </div>
-          </div>
-
-          <div class="space-y-3 text-xs">
-            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+        <div class="rounded-xl bg-surface-card border border-surface-border p-5 space-y-4">
+          <p class="text-sm font-bold text-white flex items-center gap-2">
+            <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i> Certifications & Training
+          </p>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center p-2.5 rounded-lg bg-surface-page border border-surface-border text-xs">
               <div>
-                <div class="font-bold text-white">Industrial Automation Internship</div>
-                <div class="text-slate-400">Bosch Rexroth</div>
+                <p class="font-semibold text-white">Industrial Automation Internship</p>
+                <p class="text-slate-400">Bosch Rexroth</p>
               </div>
-              <span class="font-mono text-cyan-400">2025</span>
+              <span class="chip">2025</span>
             </div>
-            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+            <div class="flex justify-between items-center p-2.5 rounded-lg bg-surface-page border border-surface-border text-xs">
               <div>
-                <div class="font-bold text-white">UAV (Unmanned Aerial Vehicles) Workshop</div>
-                <div class="text-slate-400">Fuselage Innovations</div>
+                <p class="font-semibold text-white">UAV Systems Workshop</p>
+                <p class="text-slate-400">Fuselage Innovations</p>
               </div>
-              <span class="font-mono text-cyan-400">2024</span>
+              <span class="chip">2024</span>
             </div>
-            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+            <div class="flex justify-between items-center p-2.5 rounded-lg bg-surface-page border border-surface-border text-xs">
               <div>
-                <div class="font-bold text-white">Embedded Systems Hands-on Workshop</div>
-                <div class="text-slate-400">Srishti Robotics</div>
+                <p class="font-semibold text-white">Embedded Systems Workshop</p>
+                <p class="text-slate-400">Srishti Robotics</p>
               </div>
-              <span class="font-mono text-cyan-400">2024</span>
+              <span class="chip">2024</span>
             </div>
           </div>
         </div>
@@ -906,70 +613,53 @@
       </div>
     </section>
 
-    <!-- SECTION: Contact / Quick Connect -->
-    <section id="contact" class="py-20 bg-slate-950/80 border-t border-darkborder">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-4">
-          <i data-lucide="send" class="w-4 h-4"></i>
-          <span>Direct Transmission</span>
-        </div>
+    <!-- ─── CONTACT ───────────────────────────────────────────────────── -->
+    <section id="contact" class="py-16 section-alt border-t border-surface-border">
+      <div class="max-w-4xl mx-auto px-6 text-center">
 
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          Let's Build the Future of Robotics.
-        </h2>
-        <p class="text-slate-400 text-sm sm:text-base mt-3 max-w-xl mx-auto">
-          Currently open to full-time roles, R&D engineering positions, and collaborative robotics ventures worldwide (On-site / Relocation / Remote).
+        <p class="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-2">Get In Touch</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Let's Connect</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-md mx-auto">
+          Open to Robotics, Embedded Systems, and Firmware roles globally — on-site, hybrid, relocation, or remote.
         </p>
 
-        <!-- Interactive Contact Cards -->
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-          
-          <!-- Email Card with Copy button -->
-          <div class="p-5 rounded-2xl bg-darkcard border border-darkborder neon-border flex flex-col justify-between">
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+
+          <div class="rounded-xl bg-surface-card border border-surface-border p-5 flex flex-col justify-between">
             <div>
-              <i data-lucide="mail" class="w-6 h-6 text-cyan-400 mb-2"></i>
-              <div class="text-xs text-slate-400 font-mono">Email Address</div>
-              <div class="text-sm font-semibold text-white break-all mt-0.5">haripanand04@gmail.com</div>
+              <p class="text-[11px] text-slate-500 mb-1">Direct Email</p>
+              <p class="text-sm font-semibold text-white break-all">haripanand04@gmail.com</p>
             </div>
-            <button onclick="copyEmail()" id="copyBtn" class="mt-4 w-full py-2 px-3 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-mono text-slate-300 transition flex items-center justify-center gap-2 border border-slate-700">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i> <span id="copyBtnText">Copy Email</span>
+            <button onclick="copyEmail()" class="mt-4 py-1.5 px-3 rounded-md bg-surface-page hover:bg-[#132040] border border-surface-border text-xs text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span id="copyLabel">Copy Email</span>
             </button>
           </div>
 
-          <!-- LinkedIn Card -->
-          <a href="https://www.linkedin.com/in/hari-prasad-anand-90638126a/" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-darkcard border border-darkborder neon-border flex flex-col justify-between group">
+          <a href="https://www.linkedin.com/in/hari-prasad-anand-90638126a/" target="_blank" class="card rounded-xl bg-surface-card border border-surface-border p-5 flex flex-col justify-between group">
             <div>
-              <i data-lucide="linkedin" class="w-6 h-6 text-blue-400 mb-2"></i>
-              <div class="text-xs text-slate-400 font-mono">LinkedIn Profile</div>
-              <div class="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors mt-0.5">Hari Prasad Anand</div>
+              <p class="text-[11px] text-slate-500 mb-1">LinkedIn</p>
+              <p class="text-sm font-semibold text-white group-hover:text-sky-400 transition-colors">Hari Prasad Anand</p>
             </div>
-            <div class="mt-4 text-xs font-mono text-cyan-400 flex items-center gap-1.5">
-              <span>Connect on LinkedIn</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </div>
+            <span class="mt-4 text-xs text-sky-400 flex items-center gap-1">View Profile <i data-lucide="external-link" class="w-3 h-3"></i></span>
           </a>
 
-          <!-- GitHub Card -->
-          <a href="https://github.com/Hhaarii" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-darkcard border border-darkborder neon-border flex flex-col justify-between group">
+          <a href="https://github.com/Hhaarii" target="_blank" class="card rounded-xl bg-surface-card border border-surface-border p-5 flex flex-col justify-between group">
             <div>
-              <i data-lucide="github" class="w-6 h-6 text-teal-400 mb-2"></i>
-              <div class="text-xs text-slate-400 font-mono">GitHub Profile</div>
-              <div class="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors mt-0.5">@Hhaarii</div>
+              <p class="text-[11px] text-slate-500 mb-1">GitHub</p>
+              <p class="text-sm font-semibold text-white group-hover:text-sky-400 transition-colors">@Hhaarii</p>
             </div>
-            <div class="mt-4 text-xs font-mono text-cyan-400 flex items-center gap-1.5">
-              <span>Explore Code Repos</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </div>
+            <span class="mt-4 text-xs text-sky-400 flex items-center gap-1">Explore Code <i data-lucide="external-link" class="w-3 h-3"></i></span>
           </a>
 
         </div>
 
-        <!-- Direct Email Link CTA -->
-        <div class="mt-8 flex items-center justify-center gap-4">
-          <a href="mailto:haripanand04@gmail.com" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm hover:bg-cyan-400 transition shadow-[0_0_20px_rgba(6,182,212,0.4)]">
-            <i data-lucide="send" class="w-4 h-4"></i> Send Message Directly
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a href="mailto:haripanand04@gmail.com" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-semibold text-sm transition shadow">
+            <i data-lucide="mail" class="w-4 h-4"></i> Send Message
           </a>
-          <a href="assets/docs/Hariprasad_Anand_Resume.pdf" download class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-darkcard border border-darkborder hover:border-cyan-400/50 text-slate-200 font-semibold text-sm transition">
-            <i data-lucide="download" class="w-4 h-4"></i> Download PDF
+          <a href="assets/docs/Hariprasad_Anand_Resume.pdf" download class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-surface-card hover:bg-[#132040] border border-surface-border text-slate-200 font-medium text-sm transition">
+            <i data-lucide="download" class="w-4 h-4 text-slate-400"></i> Download Resume PDF
           </a>
         </div>
 
@@ -978,79 +668,61 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-darkborder bg-darkbg py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-        <span>Hariprasad Anand &copy; 2026. Designed for High-Performance Robotics Engineering.</span>
-      </div>
-      <div class="flex items-center gap-4 text-slate-400">
-        <a href="https://github.com/Hhaarii" target="_blank" class="hover:text-cyan-400 transition">github.com/Hhaarii</a>
-        <span>&bull;</span>
-        <a href="#about" class="hover:text-cyan-400 transition">Back to Top &uarr;</a>
+  <!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
+  <footer class="border-t border-surface-border bg-[#080d1a] py-6">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <span>Hariprasad Anand © 2026 · Robotics & Automation Engineer</span>
+      <div class="flex items-center gap-5">
+        <a href="https://github.com/Hhaarii" target="_blank" class="hover:text-slate-300 transition">GitHub</a>
+        <a href="https://www.linkedin.com/in/hari-prasad-anand-90638126a/" target="_blank" class="hover:text-slate-300 transition">LinkedIn</a>
+        <a href="#about" class="hover:text-slate-300 transition">↑ Top</a>
       </div>
     </div>
   </footer>
 
-  <!-- Toast Notification for Copy -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-cyan-500 text-slate-950 font-mono text-xs font-bold px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2">
-    <i data-lucide="check" class="w-4 h-4"></i>
-    <span>Email copied to clipboard!</span>
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 translate-y-16 opacity-0 pointer-events-none transition-all duration-300 bg-sky-500 text-white text-xs font-semibold px-4 py-2.5 rounded-lg shadow-xl flex items-center gap-2">
+    <i data-lucide="check" class="w-4 h-4"></i> Copied to clipboard!
   </div>
 
   <script>
-    // Initialize Lucide icons
     lucide.createIcons();
 
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    // Mobile nav
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('mobileNav').classList.toggle('hidden');
     });
 
-    // 3D Model camera presets
-    function setCamera(orbitX, orbitY, distance) {
-      const viewer = document.getElementById('ugvViewer');
-      if (viewer) {
-        viewer.cameraOrbit = `${orbitX} ${orbitY} ${distance}`;
-        viewer.jumpCameraToGoal();
-      }
+    // 3D Camera presets
+    function setCamera(x, y, d) {
+      const v = document.getElementById('ugvViewer');
+      if (v) { v.cameraOrbit = `${x} ${y} ${d}`; v.jumpCameraToGoal(); }
     }
 
-    // Project filtering logic
-    function filterProjects(category) {
-      const cards = document.querySelectorAll('.project-card');
-      const buttons = document.querySelectorAll('.filter-btn');
-
-      buttons.forEach(btn => {
-        btn.classList.remove('bg-cyan-500', 'text-slate-950', 'font-bold');
-        btn.classList.add('bg-darkcard', 'border', 'border-darkborder', 'text-slate-300');
+    // Project filter
+    function filter(cat) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('bg-sky-500', 'text-white');
+        b.classList.add('bg-surface-card', 'border', 'border-surface-border', 'text-slate-300');
       });
-      event.target.classList.remove('bg-darkcard', 'border', 'border-darkborder', 'text-slate-300');
-      event.target.classList.add('bg-cyan-500', 'text-slate-950', 'font-bold');
+      event.target.classList.remove('bg-surface-card', 'border', 'border-surface-border', 'text-slate-300');
+      event.target.classList.add('bg-sky-500', 'text-white');
 
-      cards.forEach(card => {
-        if (category === 'all' || card.classList.contains(category)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
+      document.querySelectorAll('.proj').forEach(c => {
+        c.style.display = (cat === 'all' || c.classList.contains(cat)) ? 'flex' : 'none';
       });
     }
 
-    // Copy Email to clipboard with toast
+    // Copy email
     function copyEmail() {
       navigator.clipboard.writeText('haripanand04@gmail.com').then(() => {
-        const toast = document.getElementById('toast');
-        const copyBtnText = document.getElementById('copyBtnText');
-        copyBtnText.textContent = 'Copied!';
-        toast.classList.remove('translate-y-20', 'opacity-0');
+        document.getElementById('copyLabel').textContent = 'Copied!';
+        const t = document.getElementById('toast');
+        t.classList.remove('translate-y-16', 'opacity-0');
         setTimeout(() => {
-          toast.classList.add('translate-y-20', 'opacity-0');
-          copyBtnText.textContent = 'Copy Email';
-        }, 2500);
+          t.classList.add('translate-y-16', 'opacity-0');
+          document.getElementById('copyLabel').textContent = 'Copy Email';
+        }, 2200);
       });
     }
   </script>
