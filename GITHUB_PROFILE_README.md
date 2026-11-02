@@ -71,17 +71,25 @@ I am a passionate **Robotics and Automation Engineer** with a dual mastery of lo
 
 ### 🚜 1. Autonomous Mapping UGV (Gesar v3)
 - **Stack:** ROS 2 Humble, Nav2, Cartographer SLAM, STM32, Raspberry Pi 4, UART Telemetry.
-- **Highlights:** Full-stack skid-steer autonomous rover with real-time 2D/3D LiDAR spatial mapping, obstacle avoidance, and low-level deterministic motor control with encoder feedback over CRC-checked UART.
+- **Highlights:** Full-stack skid-steer autonomous rover with real-time 2D/3D LiDAR spatial mapping, dynamic obstacle avoidance, and low-level deterministic motor control with encoder feedback over CRC-checked UART.
 
-### 📡 2. Coast Guard 915 MHz RF Warning System & Ag Rover
-- **Stack:** STM32F103, RFM69HCW 915 MHz, SolidWorks CAD, GPS RTK, Custom PCB.
-- **Highlights:** Mission-critical remote alert link pairing STM32 transceivers with zero packet loss, instant LED/haptic feedback, and an autonomous agricultural rover with a 4-DOF manipulator.
+### 🌾 2. Skid-Steer Agricultural Rover with Vision-Based 4-DOF Arm
+- **Stack:** OpenCV, 4-DOF Manipulator, GPS RTK, STM32, SolidWorks CAD, Soil Telemetry.
+- **Highlights:** Autonomous skid-steer agricultural vehicle equipped with a camera-guided 4-DOF robotic arm for precision crop inspection and manipulation, integrated with GPS RTK positioning and soil analytics sensors.
 
-### 👁️ 3. AI Vision Suite & Enterprise Support Bot
-- **Stack:** YOLOv8, OpenCV, Groq, Ollama LLM, Flask, Python.
-- **Highlights:** Plant disease edge classification, person re-identification warning system with ROS alerts, and enterprise customer support chatbot grounded in engineering knowledge bases.
+### 🍃 3. Plant Disease Detection System
+- **Stack:** YOLOv8, OpenCV, Python, Edge AI Inference.
+- **Highlights:** Real-time leaf pathology diagnosis and disease classification pipeline deployed on edge hardware, delivering bounding-box lesion detection, severity scoring, and confidence thresholding for agronomic monitoring.
 
-### 🌐 4. Secure MQTT Multi-Device Mesh Orchestration
+### 🔓 4. Linux Facial Recognition System (Face Unlock)
+- **Stack:** InsightFace, Linux PAM (Pluggable Authentication Modules), OpenCV, Python, Liveness Detection.
+- **Highlights:** System-level biometric authentication service for Linux desktop systems integrating deep facial embedding comparison and anti-spoofing liveness verification directly into PAM login/sudo challenges.
+
+### 📡 5. Coast Guard 915 MHz RF Warning System
+- **Stack:** STM32F103, RFM69HCW 915 MHz, Custom KiCad PCB, Haptic Feedback.
+- **Highlights:** Mission-critical remote alert link pairing STM32 transceivers with zero packet loss, instant LED/haptic feedback, and low-latency interrupt architecture.
+
+### 🌐 6. Secure MQTT Multi-Device Mesh Orchestration
 - **Stack:** Mosquitto, Tailscale Mesh VPN, ESP32, ADB streaming, Web UI.
 - **Highlights:** Low-latency encrypted orchestration across remote mobile devices, MCUs, and workstation computers.
 
